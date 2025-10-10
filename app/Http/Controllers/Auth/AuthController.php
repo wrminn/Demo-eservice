@@ -30,7 +30,7 @@ class AuthController extends Controller
             'user_email' => $credentials['email'],
             'password'   => $credentials['password'],
         ];
-
+        
 
         if (Auth::attempt($loginData)) {
             $request->session()->regenerate();

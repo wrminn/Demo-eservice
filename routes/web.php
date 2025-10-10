@@ -19,8 +19,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //login
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login'])->name('login.submit')->middleware('throttle:5,1');
+Route::get('/Login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/Login', [AuthController::class, 'login'])->name('login.submit')->middleware('throttle:5,1');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
