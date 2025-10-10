@@ -1,0 +1,202 @@
+.main-content {
+    position: relative;
+    overflow: hidden;
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 60px 0 60px;
+}
+
+.main-content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.main-content::before {
+    background-image: url("/image/home/Body-BG.jpg");
+    height: 1258px;
+}
+
+.left-section,
+.center-section,
+.right-section {
+    flex: 1;
+}
+
+.right-section {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.mayor-box img {
+    width: 350px
+}
+
+
+
+.left-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.license-box {
+    z-index: 2;
+}
+
+.license-box img {
+    width: 350px;
+}
+
+.image-top img {
+    width: 350px;
+    position: relative;
+    margin-top: -50px;
+}
+
+
+
+/* Center phone box */
+.phone-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.phone-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #007b83;
+}
+
+.phone-overlay .btn {
+    background: #007b83;
+    color: white;
+    margin: 10px 0;
+}
+
+.phone-links .link-btn {
+    display: block;
+    background: #e0f7f8;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin: 5px auto;
+    cursor: pointer;
+}
+
+.fee-box {
+    background: #fff9e6;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.report-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.report-item {
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.image-top-center-section img {
+    width: 550px;
+    position: relative;
+    right: 40%;
+}
+
+.center-section {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+img.Phone {
+    width: 270px;
+    margin-bottom: 15px;
+}
+
+img.In-Phone-Banner {
+    width: 235px;
+}
+
+img.E-Service-Button {
+    width: 120px;
+    margin-top: -40%;
+}
+
+.phone-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.phone-links img {
+    width: 200px;
+}
+
+img.Button-2 {
+    width: 350px;
+}
+
+img.Banner-box-1 {
+    width: 400px;
+    position: relative;
+    margin-top: -35px;
+}
+
+.Button-box {
+    position: relative;
+    margin-top: -45%;
+    right: -18%;
+    z-index: 5;
+}
+
+.Button-box img {
+    width: 80px;
+}
+
+.Button-box-last {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-left: -10%;
+}
+
+img.Button-img-last {
+    width: 180px;
+}
+
+img.Button-img-last:hover ,
+.license-box img:hover ,
+img.Banner-box:hover ,
+img.Button-2:hover ,
+img.E-Service-Button:hover ,
+.phone-links img:hover {
+    transform: scale(1.1);
+}
