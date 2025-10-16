@@ -15,7 +15,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="{{ asset('/css/template/header.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/template/body.css') }}">
 
@@ -40,12 +40,13 @@
                     </div>
                 </div>
                 <div class="header-text-right">
-                    <div class="header-box-login">
-                        <div class="header-login-title">
-                            <a href="/login" class="no-underline"><img src="/image/home/Login.png" alt=""></a>
-                        </div>
-                        <div class="header-register-title">
-                            <a class="no-underline"><img src="/image/home/Register.png" alt=""></a>
+                    <div class="header-box-logout">
+                        <div class="header-logout-title">
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                class="text-blue-600 hover:text-blue-800">
+                                <img src="/image/E-Service/Logout-Button.png" alt="">
+                            </a>
                         </div>
                     </div>
                     <div class="text-login">*คำแนะนำ* สมัครสมาชิกเพื่อติดตามสถานะการดำเนินการ</div>
@@ -76,7 +77,9 @@
             </div>
         </section>
     </div>
-
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
 </body>
 
 </html>

@@ -18,7 +18,6 @@ class DashboardController extends Controller
         $user->user_permission;
         $user->user_position;
 
-
         $Position = '';
         $FormList = '';
         if ($user->user_permission != 0) {
@@ -41,9 +40,8 @@ class DashboardController extends Controller
 
             if (Schema::hasTable($tableName)) {
                 $count = DB::table($tableName)
-                    ->where('form_status', 'N')
+                    ->where('form_status', 'P')
                     ->count();
-
                 $item->form_count = $count;
             } else {
                 $item->form_count = 0;
@@ -52,5 +50,16 @@ class DashboardController extends Controller
 
 
         return view('backend.dashboard', compact('user', 'Position', 'FormList'));
+    }
+
+    function backendUser()
+    {
+        $user = Auth::user();
+        $user->user_name;
+        $user->user_email;
+        $user->user_permission;
+        $user->user_position;
+
+        return view('home');
     }
 }

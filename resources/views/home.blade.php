@@ -1,4 +1,12 @@
-@extends('layouts.app')
+@php
+    if (!Auth::check()) {
+        $layout = 'layouts.app';
+    } else {
+        $layout = 'layouts.dashboard';
+    }
+@endphp
+
+@extends($layout)
 
 @section('content')
     <section class="main-content">
@@ -29,7 +37,7 @@
                 <img class="Phone" src="/image/home/Phone.png" alt="โทรศัพท์มือถือ">
                 <div class="phone-overlay">
                     <img class="In-Phone-Banner" src="/image/home/In-Phone-Banner.png" alt="ตราเทศบาล">
-                    <a href=""><img class="E-Service-Button" src="/image/home/E-Service-Button.png"
+                    <a href="/Requestforms"><img class="E-Service-Button" src="/image/home/E-Service-Button.png"
                             alt="e-service"></a>
                     <div class="phone-links">
                         <a href=""><img src="/image/home/Phone-Button-1.png" alt="e-service"></a>

@@ -145,3 +145,13 @@ img.header-logo {
     margin-left: -13px;
     color: black;
 }
+
+.header-logout-title img {
+    width: 200px;
+}
+
+.header-box-logout {
+    display: flex;
+    gap: 11px;
+    justify-content: center;
+}

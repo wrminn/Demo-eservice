@@ -76,5 +76,6 @@ a.table-form {
 .form-wrapper {
     padding: 30px;
     background: aliceblue;
+    width: 1200px;
     height: auto;
 }

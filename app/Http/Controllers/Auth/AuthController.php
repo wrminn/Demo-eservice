@@ -18,9 +18,33 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
+    // public function login(Request $request)
+    // {
+
+    //     $credentials = $request->validate([
+    //         'email' => ['required', 'email'],
+    //         'password' => ['required'],
+    //     ]);
+
+    //     $loginData = [
+    //         'user_email' => $credentials['email'],
+    //         'password'   => $credentials['password'],
+    //     ];
+
+
+    //     if (Auth::attempt($loginData)) {
+    //         $request->session()->regenerate();
+    //         return redirect()->intended('/backend');
+    //     }
+
+    //     return back()->withErrors([
+    //         'email' => 'อีเมลหรือรหัสผ่านไม่ถูกต้อง',
+    //     ])->onlyInput('email');
+    // }
+
+
     public function login(Request $request)
     {
-
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
@@ -30,17 +54,29 @@ class AuthController extends Controller
             'user_email' => $credentials['email'],
             'password'   => $credentials['password'],
         ];
-        
 
         if (Auth::attempt($loginData)) {
             $request->session()->regenerate();
-            return redirect()->intended('/backend');
+
+            $user = Auth::user();
+            
+            if ($user->user_permission == 2) {
+                return redirect()->intended('/backend');
+            } elseif ($user->user_permission == 3) {
+                return redirect()->intended('/ServiceCenterOnline');
+            } else {
+                Auth::logout();
+                return redirect()->route('login')->withErrors([
+                    'email' => 'บัญชีนี้ไม่มีสิทธิ์เข้าใช้งานระบบ',
+                ]);
+            }
         }
 
         return back()->withErrors([
             'email' => 'อีเมลหรือรหัสผ่านไม่ถูกต้อง',
         ])->onlyInput('email');
     }
+
 
     // ออกจากระบบ
     public function logout(Request $request)
@@ -49,6 +85,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/home');
     }
 }
